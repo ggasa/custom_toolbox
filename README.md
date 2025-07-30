@@ -10,7 +10,7 @@ Author: Dan Kim
 
 
 
-####A guide to using the custom_toolbox
+#### A guide to using the custom_toolbox
 
 *Purpose of this code: 
 Extracts BrainSenseSurvey data from Medtronic's Percept Device JSON exports (LfpMontageTimeDomain and LfpMontage).
