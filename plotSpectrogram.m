@@ -2,7 +2,7 @@ function spectroFig = plotSpectrogram(data, channelParams, varargin)
 %Computes and plot standard spectrogram for each channnel
 %'channelParams' is a structure with '.nChannels' and '.channel_map' and
 %'.channel_names' fields
-%Yohann Thenaisie 05.11.2018
+
 normalizePower = 0;
 
 %Default spectrogram parameters

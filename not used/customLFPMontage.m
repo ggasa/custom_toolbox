@@ -1,4 +1,4 @@
-function customLFPMontage(data, params)
+function extractPower(data, params)
 %Dan Kim 2025.07.22
 
 %{
@@ -40,7 +40,7 @@ for recId = 1:nRecordings
     'TWO', '2'), ...
     'THREE', '3'), ...
     '_', ' ');
-    LFPMontage.LFPMagnitude(:, recId) = data.LFPMontage{recId}.LFPMagnitude;
+    LFPMontage.LFPMagnitude(:, recId)pl = data.LFPMontage{recId}.LFPMagnitude;
     LFPMontage.ArtifactStatus{recId} = afterPoint(data.LFPMontage{recId}.ArtifactStatus); 
 end
 

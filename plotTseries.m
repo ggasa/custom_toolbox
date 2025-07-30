@@ -1,9 +1,9 @@
-function channelsFig = plotChannels(data, channelParams)
+function channelsFig = plotTseries(data, channelParams)
 %channelsFig = plotChannels(LFP.data, LFP)
 %Plots data from each channel of LFP data in a subplot
 %S is a structure with fields:
 %.data, .time, .nChannels, .channel_names, .channel_map, .ylabel
-%Yohann Thenaisie 26.10.2018
+
 
 channelsFig = figure();
 

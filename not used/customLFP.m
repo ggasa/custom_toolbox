@@ -1,4 +1,4 @@
-function customLFP(data, params)
+function extractTseries(data, params)
 %Dan Kim, 15th July 2025
 
 % Extract parameters for this recording mode
@@ -141,7 +141,7 @@ for recId = 1:nRecs
         set(channelsFig, 'Position', [1, 1, 8, 6]);
         savefig(channelsFig, [params.save_pathname filesep savename '_LFP']);
         
-        %!Dan's added code. Specifiy cases for different recordingModes. Also
+        %Specifiy cases for different recordingModes. Also
         %renews savename for each recordingmode.
         %!Dan's added code Save as .png
         exportgraphics(channelsFig, fullfile(params.save_pathname, [savename '_LFPTimeDomain.png']), 'Resolution', 500);

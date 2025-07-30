@@ -3,19 +3,13 @@
 % folder per session. Additionally, relevant stimulation settings that are
 % assumed to be affecting the Survey are extracted and exported as an excel. 
 %
-%
-% 1. Warning -data legnth and packet size mismatch: is that okay? how is
-% the toolbox dealing with it?
-%
-% 2. Get the relevant stim infromation for that Brainsense Survey -- Should
-% be from Groups.Initial since those settings were used before this
-% session and Brainsense measures
-% Might also be useful to extract GroupHistory...
 %Author: Dan Kim
-    %credit: Yohann Thenaisie 02.09.2020 - Lausanne University Hospital (CHUV)
+    %Credit: Yohann Thenaisie 02.09.2020 - Lausanne University Hospital (CHUV)
 
-% Set pathname to the Percept Toolbox
-addpath(genpath('C:/Users/rlaan/percept_toolbox/'))
+%%%%%%%%%%%%%%%%% Change pathname to the Custom Toolbox %%%%%%%%%%%%%%%%%%
+addpath(genpath('C:/Users/rlaan/perceptGT/'))
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 % Select JSON files to load
 [filenames, data_pathname] = uigetfile('*.json', 'MultiSelect', 'on');
@@ -61,7 +55,7 @@ for fileId = 1:numel(filenames)
     params.subjectID = subjectID{1};
     params.SessionDate = regexprep(data.SessionDate, {':', '-'}, {''});
     sessionDate_formatted = datetime(data.SessionDate,'InputFormat', 'yyyy-MM-dd''T''HH:mm:ss''Z');
-    params.save_pathname = fullfile(data_pathname, [subjectID{1} '_result']);
+    params.save_pathname = fullfile(data_pathname, [subjectID{1}]);
     mkdir(params.save_pathname)
     params.correct4MissingSamples = false; %set as 'true' if device synchronization is required
     params.ProgrammerVersion = data.ProgrammerVersion;
@@ -269,8 +263,6 @@ for fileId = 1:numel(filenames)
         end
     end
        
-     %% Making the conditional statement for the table -> switching between Hemisphere & SensingChannel
-
      %% Making the table, displaying and exporting
      colName = subjectID{1};
      %subjectID, device, etc...
@@ -345,13 +337,13 @@ for fileId = 1:numel(filenames)
      if isfield(data, 'LFPMontage') %Survey
         params.recordingMode = 'LFPMontage';
         %Extract and save LFP Montage PSD
-        customLFPMontage(data, params);
+        extractLFPMontage(data, params);
         
         %Extract and save LFP Montage Time Domain
         params.recordingMode = 'LfpMontageTimeDomain';
         params.nChannels = 6;
         params.channel_map = [1 2 3 ; 4 5 6];
-        customLFP(data, params);
+        extractLFPMontageTD(data, params);
      end
 
      fprintf("Done with subject %s ! \n\n\n", params.subjectID)
