@@ -1,4 +1,4 @@
-## Custom toolbox for extracting BrainSenseSurvey Data from Percept Device JSON files
+## Custom toolbox
 
 
 
