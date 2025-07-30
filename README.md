@@ -1,7 +1,9 @@
-# 07/29/2025
-# Author: Dan Kim
+## Custom toolbox for extracting BrainSenseSurvey Data from Percept Device JSON files
 
 
+
+
+Author: Dan Kim
 A guide to using the custom_toolbox
 
 *Purpose of this code: 
