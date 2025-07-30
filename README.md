@@ -17,6 +17,7 @@ Extracts BrainSenseSurvey data from Medtronic's Percept Device JSON exports (Lfp
 Saves it into matlab figures, plots(png), .m datafile, and a patient summary information table.
 
 How to Use
+0. Main file is the "perceptGT.m" file, user will only need to interact with this file.
 1. Set the pathname to the folder containing toolbox.m file
     ex. 'C:/Users/rlaan/custom_toolbox/' -> 'your computer's path'
 2. Run the matlab file, toolbox.m
