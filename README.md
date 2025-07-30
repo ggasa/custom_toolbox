@@ -3,7 +3,8 @@
 
 
 
-Author: Dan Kim \n
+Author: Dan Kim 
+
 A guide to using the custom_toolbox
 
 *Purpose of this code: 
