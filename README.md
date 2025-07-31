@@ -23,6 +23,8 @@ Saves it into matlab figures, plots(png), .m datafile, and a patient summary inf
 - To **close all** the figures that are generated at once rather than manually close them, type "close all" without the "" in matlab's command window.
 - There program might lag if large amount of json files are put in due to the code generating figures. To close all the figures at once, use "close all" mentioned above.
 
+
+
 0. Main file is the "perceptGT.m" file, user will only need to interact with this file. The user can select **a** single folder or multiple JSON files, as long as they are inside the parent folder(Percept_files) or the parent folder itself.
 1. Set the pathname to the folder containing toolbox.m file
     ex. 'C:/Users/rlaan/custom_toolbox/' -> 'your computer's path'
