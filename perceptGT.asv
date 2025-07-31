@@ -45,18 +45,17 @@ if choice == 1
     % If selected folder is subfolder, sub-EMOPXXXX
     if startsWith(lastFolder, "sub-")
         outputPath = fullfile(upFolder, 'Result');
-        cd(upFolder)
     else % it's already the main folder (e.g., Percept_files)
         outputPath = fullfile(rootPath, 'Result');
-        cd(rootPath)
     end
     
     if ~exist(outputPath, 'dir')
         mkdir(outputPath);
     end
     
-    data_pathname = rootPath;
-    filenames = {jsonFiles.name};
+data_pathname = rootPath;
+cd(rootPath)
+filenames = {jsonFiles.name};
 
 %% In case it's JSON files
 elseif choice == 2 
@@ -70,32 +69,29 @@ elseif choice == 2
         return
     end
     
+    % Change folder to the path folder
+    cd(data_pathname)
+    
     % If it's only one file that's selected, make it into a cell
     if ~iscell(filenames)
         filenames = {filenames};
     end
     
-    % Get rid of last "\"s or "/"s
-    if ismember(data_pathname(end), ['\' '/'])
-    data_pathname = data_pathname(1:end-1);
-    end
-
-    % Making the "Result" folder
-    [upFolder,lastFolder, ~] = fileparts(data_pathname);
     
+    % Making the "Result" folder
+    [upFolder,lastFolder, ~] = fileparts(rootPath);
+
     % If selected folder is subfolder, sub-EMOPXXXX
     if startsWith(lastFolder, "sub-")
         outputPath = fullfile(upFolder, 'Result');
-        cd(upFolder)
     else % it's already the main folder (e.g., Percept_files)
-        outputPath = fullfile(data_pathname, 'Result');
-        cd(data_pathname)
+        outputPath = fullfile(rootPath, 'Result');
     end
 
     if ~exist(outputPath, 'dir')
         mkdir(outputPath);
     end
-    
+
 end
 
 %% Predefine the table
